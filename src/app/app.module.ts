@@ -15,6 +15,7 @@ import { AddtocartComponent } from './addtocart/addtocart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ModelsComponent } from './models/models.component';
 import { TshirtComponent } from './tshirt/tshirt.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TshirtComponent } from './tshirt/tshirt.component';
     AddtocartComponent,
     CheckoutComponent,
     ModelsComponent,
-    TshirtComponent
+    TshirtComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
