@@ -935,7 +935,8 @@ Main Slider ends */
   opacity: 1;
 }
 
-@media (max-width: 1200px) 
+ @media (max-width: 1200px) {}
+
   .container {
     max-width: 760px;
   }
@@ -1169,7 +1170,7 @@ border-color: #e1e7ec;
   height: 100%;
   margin-left: 0;
 }
-<<<<<<< HEAD
+
 
 .product-container .product-images img {
   min-width: 50%;

@@ -9,6 +9,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { AboutComponent } from './about/about.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { TshirtComponent } from './tshirt/tshirt.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,7 @@ const routes: Routes = [
   {
     component:LoginComponent,
     path:"login"
-    
+
   },
   {
     component:WishlistComponent,
@@ -40,15 +41,19 @@ const routes: Routes = [
   {
     component:CheckoutComponent,
     path:"checkout"
+  },
+  {
+    component:TshirtComponent,
+    path:'tshirt'
   }
 
-  
 
- 
+
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], 
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
