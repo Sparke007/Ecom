@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  view=true;
+  changeView(){
+    this.view=false;
+  }
 
   constructor() { }
 
