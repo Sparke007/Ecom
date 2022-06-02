@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { AboutComponent } from './about/about.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     component:AddtocartComponent,
     path:"addtocart"
+  },
+  {
+    component:CheckoutComponent,
+    path:"checkout"
   }
 
   
