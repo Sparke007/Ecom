@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TshirtComponent } from './tshirt/tshirt.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -45,8 +46,11 @@ const routes: Routes = [
   {
     component:TshirtComponent,
     path:'tshirt'
+  },
+  {
+  component:SignupComponent,
+  path:'signup'
   }
-
 
 
 

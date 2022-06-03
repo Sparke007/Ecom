@@ -2,7 +2,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background #efefef;
+    background :#efefef;
     font-size: 16px;
     color: #777;
     font-family: sans-serif;
@@ -81,12 +81,12 @@ input[type="Submit"]:focus
     padding: 50px;
     width: 300px;
     height:400px;
-    background-image: url(simple.jpg);
+    /* background-image: url(simple.jpg); */
     background-size: cover;
     background-position: center;
 
 }
-.or 
+.or
 {
     position: absolute;
     top: 180px;
