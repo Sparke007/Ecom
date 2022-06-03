@@ -14,7 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ModelsComponent } from './models/models.component';
-import { TshirtComponent } from './tshirt/tshirt.component';
+import { TshirtComponent } from './tshirts/tshirt.component';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({

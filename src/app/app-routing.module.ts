@@ -9,7 +9,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { AboutComponent } from './about/about.component';
 import { AddtocartComponent } from './addtocart/addtocart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { TshirtComponent } from './tshirt/tshirt.component';
+import { TshirtComponent } from './tshirts/tshirt.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     component:LoginComponent,
-    path:"login"
+    path:"login123"
 
   },
   {
