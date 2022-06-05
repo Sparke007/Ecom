@@ -1,19 +1,19 @@
 {
-  "name": "ecomprj",
+  "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "connection.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "teamprj",
+  "author": "sparke",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "express": "^4.18.1",
     "pg": "^8.7.3",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.20.1"
-  },
-  "keywords": [],
-  "description": ""
+    "postgres": "^3.2.4",
+    "rxjs": "^7.5.5"
+  }
 }

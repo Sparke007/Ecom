@@ -1,17 +1,24 @@
 * { margin: 0; padding: 0;}
+.nav12{
+  /* display:flex; */
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
 .codehim-menu{
-	
+
  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
  font-weight: 400;
  font-size: 16px;
  background: #000000;
  padding: 10px;
  transition: .3s;
+
 }
 .codehim-menu a{
    text-decoration: none;
    display: inline;
-   
+
 }
 ul.codehim-menu{
   list-style: none;
@@ -20,8 +27,8 @@ ul.codehim-menu{
 .codehim-menu > li {
  display: inline;
  margin: 0;
-  
-} 
+
+}
 .codehim-more > li > a,
 .codehim-menu > li > a {
  height: 35px;
@@ -30,7 +37,7 @@ ul.codehim-menu{
  color: rgb(241, 239, 245);
  text-decoration: none;
  outline: 0;
- 
+
 }
 .codehim-more > li > a:hover,
 .codehim-menu > li > a:hover {
@@ -38,17 +45,17 @@ ul.codehim-menu{
  color: #6754e2;
  /* border-radius: 10px; */
 }
-.codehim-menu > li.active > a, 
-.codehim-menu > li > a:active, 
+.codehim-menu > li.active > a,
+.codehim-menu > li > a:active,
 .codehim-menu > .dropdown:hover > a {
  background: rgba(255, 251, 251, 0.2);
 
- 
+
 }
 
 .dropdown {
  position: relative;
- 
+
 }
 .dropdown:hover ul {
  z-index: 1000;
@@ -111,7 +118,7 @@ ul.codehim-menu{
  color: #fff;
   background: #6754e2;
   /* border-radius: 5px; */
-  
+
 }
 .arrow{
   display: inline-block;
@@ -133,10 +140,10 @@ ul.codehim-menu{
   -webkit-transition: .5s;
   -moz-transform: rotate(222.5deg);
   -moz-transition: .5s;
- 
+
 
 }
 .icon {font-size: 20pt;
 position: relative;
-  
+
 }
