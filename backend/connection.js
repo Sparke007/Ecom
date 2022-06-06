@@ -46,7 +46,7 @@ app.get('/products', (req, res) => {
               data1.push({
 
 
-
+                pid:result.rows[i].pid,
                 pname:result.rows[i].pname,
                 price:result.rows[i].price,
                 discription:result.rows[i].discription,

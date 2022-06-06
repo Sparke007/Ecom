@@ -1,102 +1,49 @@
-<header>
-  <h2>Checkout</h2>
-</header>
-<div class="white-space"></div>
-<div class="wrapper">
+<div class="checkout_products" *ngIf="product.length !=0">
 
-  <div class="row">
-    <form method="get">
-      <div class="col-7 col">
-        <h3 class="topborder"><span>Billing Details</span></h3>
-        <label for="country">Country</label>
-        <select name="country" id="country" required>
-          <option value="">Please select a country</option>
-          <option value="India">India/option>
-          <option value="Not India">Not India</option>
-        </select>
-        <div class="width50 padright">
-          <label for="fname">First Name</label>
-          <input type="text" name="fname" id="fname" placeholder="Enter your first name"required>
-        </div>
-        <div class="width50">
-          <label for="lname">Last Name</label>
-          <input type="text" name="lname" id="lname"  placeholder="Enter your last name" required>
-        </div>
-        <label for="company">Company Name</label>
-        <input type="text" name="company" id="company"  placeholder="Enter your company name" required>
-        <label for="address">Address</label>
-        <input type="text" name="address" id="address"   placeholder="Enter your address" required>
-        <input type="text" name="address" id="address2" placeholder="Optional">
-        <label for="city">Town / City</label>
-        <input type="text" name="city" id="city"  placeholder="Enter your city "required>
-        <div class="width50 padright">
-          <label for="province">Province</label>
-          <select name="province" id="province" required>
-            <option value="">Please select a province</option>
+  <div class="checkout_product" *ngFor="let p of product, let i= index">
 
-            <option value="in">India</option>
-            <option value="not-india">Not India</option>
-          </select>
+     <img src="{{p.imgsrc}}" alt="" class="checkout_product_img">
+     <div class="checkout_product_info">
+
+         <p class="checkout_product_title">
+          {{p.pname}}
+
+         </p>
+         <img src="https://cdn2.hubspot.net/hubfs/4567260/0_KZ8hBw7pQZFFt2Mt.png" alt="">
+         <p class="checkout_product_in_stock">In Stock</p>
+        <div class="checkout_product_gift">
+
+            <input type="checkbox">
+            <p>This is a gift</p>
+            <a routerLink="/" class="checkout_product_more"> Learn more</a>
         </div>
-        <div class="width50">
-          <label for="postcode">Postcode</label>
-          <input type="text" name="postcode" id="postcode" placeholder="Postcode / Zip" required>
-        </div>
-        <div class="width50 padright">
-          <label for="Mobile">Mobile no</label>
-          <input type="text" name="Mobile" id="Mobile" placeholder="Enter mobile no.">
-        </div>
-        <div class="width:17px">
-          <label for="email">Email Address</label>
-          <input type="text" name="email" id="email" placeholder="Enter email-id">
-        </div>
-        <input type="checkbox" value="2" name="checkbox"><p>Create an account?</p>
-        <div class="width:17px">
-          <label for="address">Shipping Address</label>
-          <input type="text" name="address" id="email" placeholder="Enter your delivery address">
+        <div class="checkout_options">
+          <div class="checkout_dropdown">
+            </div>
+            <a (click)="removeItem(p)"> Delete</a>
         </div>
 
+     </div>
+     <div class="qantity-container">
+      <h4><p class="qty">Qty</p></h4>
+      <div class="quantity-button">
 
-        <label for="notes" class="notes">Order Notes</label>
-        <textarea name="notes" id="notes" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-      </div>
-      <div class="col-5 col order">
-        <h3 class="topborder"><span>Your Order</span></h3>
-        <div class="row">
-          <h4 class="inline">Product</h4>
-          <h4 class="inline alignright">Total</h4>
-        </div>
-        <div>
-          <p class="prod-description inline"><div class="qty inline"><span class="smalltxt">x</span><!--{{totalItem}}--></div>
-
-        </div>
-        <div><h5>Cart Subtotal</h5>{{grandTotal|currency:'INR'}}</div>
-        <div>
-          <h5 class="inline difwidth">Shipping and Handling</h5>
-          <p class="inline alignright center">Free Shipping</p>
-        </div>
-        <div><h5>Order Total</h5><!--{{grandTotal|currency:'INR'}}--></div>
-
-        <div>
-          <h3 class="topborder"><span>Payment Method</span></h3>
-          <input type="radio" value="banktransfer" name="payment" checked><p>Direct Bank Transfer</p>
-          <p class="padleft">
-            Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won't be shipped until the funds have cleared in our account.
-          </p>
-        </div>
-
-        <div><input type="radio" value="cheque" name="payment"><p>Cheque Payment</p></div>
-        <div>
-          <input type="radio" value="paypal" name="payment"><p>Paypal</p>
-          <fieldset class="paymenttypes">
-
-          </fieldset>
-          <a href="#" class="padleft"></a>
-        </div>
-
-        <button routerLink="/thankyou">Place Order</button>
-
-      </div>
-    </form>
+        <button class="btn" id="plus" type="button" (click)="inc(p)"><i class="fa fa-plus"></i></button>
+        <span>{{p.quantity}}</span>
+        <button class="btn" id="minus" type="button" (click)="dec(p)"><i class="fa fa-minus"></i></button>
+       </div>
+    </div>
   </div>
+
+  <div class="class-right-subtotal">
+  <app-cart></app-cart>
 </div>
+
+</div>
+
+<div class="" *ngIf="product.length == 0">
+  <h2>Your shopping basket is empty</h2>
+  <p>You have no items in your basket</p>
+  <button class="btn btn-warning" routerLink="/">shop now</button>
+</div>
+<br>

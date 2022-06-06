@@ -17,6 +17,7 @@ import { ModelsComponent } from './models/models.component';
 import { TshirtComponent } from './tshirts/tshirt.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     CheckoutComponent,
     ModelsComponent,
     TshirtComponent,
-    SignupComponent
+    SignupComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

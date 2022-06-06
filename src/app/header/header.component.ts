@@ -21,4 +21,10 @@ export class HeaderComponent implements OnInit {
 
   }
 
-}
+
+  // search(event:any){
+  // this.searchterm=(event.target as HTMLInputElement).value;
+  // this.cartService.search.next(this.searchterm);
+  // }
+
+  }

@@ -15,7 +15,7 @@
 						<a routerLink="wishlis" class="btn btn-light" style=" border:  none; margin: 3px;">
 							<i class="fa fa-heart"></i>  <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>
 						</a>
-						<a data-bs-toggle="offcanvas" routerLink="addtocart" class="btn btn-light" style=" border: none; margin: 3px;">
+						<a data-bs-toggle="offcanvas" routerLink="checkout" class="btn btn-light" style=" border: none; margin: 3px;">
 							<i class="fa" style="font-size:24px;">&#xf07a;</i>
 							<span class='badge badge-warning' id='lblCartCount'>{{totalItem}}</span><span>My cart</span>
 						</a>
@@ -25,8 +25,9 @@
 				<div class="col-lg-5 col-md-12 col-12">
 					<form action="#" class="">
 		              <div class="input-group">
-		                <input type="search" class="form-control" style="width:55%" placeholder="Search">
-		                <select class="form-select">
+		                <input type="text" name="search" placeholder="search products here!" class="form-control" style="width:55%" placeholder="Search">
+
+                    <select class="form-select">
 		                  <option value="">Go Here</option>
 		                  <option value="codex">Popular Trends</option>
 		                  <option value="comments">Shop Products</option>
