@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../models/cart';
-import { CartItem } from '../models/cartIem';
+import { productd } from '../productd';
 import { CartService } from '../services/cart.services';
 
 @Component({
@@ -8,24 +7,38 @@ import { CartService } from '../services/cart.services';
   templateUrl: './addtocart.component.html',
   styleUrls: ['./addtocart.component.css']
 })
+
 export class AddtocartComponent implements OnInit {
-  cart!: Cart;
-  constructor(private cartService: CartService ) {
-    this.setCart();
+  public product:any=[];
+  public grandTotal!:number;
+  public totalItem: number=0;
+  constructor(public cartService: CartService) { }
+
+  ngOnInit(): void { this.cartService.getProducts()
+    .subscribe(res=>{
+      this.product=res;
+      this.grandTotal=this.cartService.getTotalPrice();
+    })
+
+    this.cartService.getProducts()
+    .subscribe(res=>{
+    this.totalItem = res.length;
+  })
   }
 
-  ngOnInit(): void {
-  }
-  setCart(){
-    this.cart = this.cartService.getCart();
-  }
-  removeFromCart(cartItem: CartItem){
-    this.cartService.removeFromCart(cartItem.tshirt.id);
-    this.setCart();
-  }
-  changeQuantity(cartItem:CartItem, quantityInString:string){
-    const quantity = parseInt(quantityInString);
-    this.cartService.changeQuantity(cartItem.tshirt.id, quantity);
-    this.setCart();
-  }
-}
+  removeItem(item:productd){
+    this.cartService.removeCartItem(item)
+      }
+
+      calculatePrice(){
+
+        this.grandTotal=this.cartService.getTotalPrice();
+
+      }
+
+      emptycart(){
+        this.cartService.removeAllCart();
+      }
+    }
+
+

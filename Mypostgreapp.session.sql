@@ -1,7 +1,8 @@
-INSERT INTO contact (cname, cemail, cphone, ctext)
+INSERT INTO products (pid, pname, price, discription, imgsrc)
 VALUES (
-    'sparke',
-    'sparke@gmail.com',
-   77888888888,
-    'This is simple text'
+    pid:integer,
+    'pname:character varying',
+    price:numeric,
+    'discription:character varying',
+    'imgsrc:character varying'
   );

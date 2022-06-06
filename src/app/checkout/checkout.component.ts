@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
-import { Cart } from '../models/cart';
 import { CartService } from '../services/cart.services';
-import { CartItem } from '../models/cartIem';
 
 @Component({
   selector: 'app-checkout',
@@ -11,24 +7,29 @@ import { CartItem } from '../models/cartIem';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-  cart!:Cart;
-  constructor(private cartServices:CartService) {
-    this.setCart();
-   }
 
+  public product:any=[];
+  public grandTotal!:number;
+
+  constructor(private cartService: CartService) { }
   ngOnInit(): void {
-  }
-  setCart(){
-    this.cart = this.cartServices.getCart();
-  }
-  removeFromCart(cartItem: CartItem){
-    this.cartServices.removeFromCart(cartItem.tshirt.id);
-    this.setCart();
-  }
-  changeQuantity(cartItem:CartItem, quantityInString:string){
-    const quantity = parseInt(quantityInString);
-    this.cartServices.changeQuantity(cartItem.tshirt.id, quantity);
-    this.setCart();
+
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.product=res;
+      this.grandTotal=this.cartService.getTotalPrice();
+    })
   }
 
-}
+  removeItem(item:any){
+this.cartService.removeCartItem(item)
+  }
+
+  emptycart(){
+    this.cartService.removeAllCart();
+  }
+  }
+
+
+
+

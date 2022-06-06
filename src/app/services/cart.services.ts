@@ -1,34 +1,56 @@
-import { isNgTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { Cart } from '../models/cart';
 import { BehaviorSubject } from 'rxjs';
-import { Tshirtdetails } from '../models/thsirtdetails';
-import { CartItem } from '../models/cartIem';
-
+import { productd } from '../productd';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-private cart:Cart=new Cart();
-addToCart(tshirt:Tshirtdetails) : void{
-  let cartItem=this.cart.items.find(item => item.tshirt.id === tshirt.id)
-  if(cartItem){
-    this.changeQuantity(tshirt.id , cartItem.quantity +1)
-    return;
-  }
-  this.cart.items.push(new CartItem(tshirt));
-}
-removeFromCart(tshirtId:number) : void{
-  this.cart.items = this.cart.items.filter(item=>item.tshirt.id !=tshirtId)
-}
-changeQuantity(quantity:number, tshirtId:number){
-  let cartItem= this.cart.items.find(item =>item.tshirt.id === tshirtId);
-  if(!cartItem) return;
-  cartItem.quantity = quantity;
-}
-getCart():Cart{
-  return this.cart;
-}
 
+
+  public cartItemList:productd[]=[]
+  public productList=new BehaviorSubject<any>([]);
+
+  constructor() { }
+
+  getProducts(){
+    return this.productList.asObservable();
+
+  }
+  setProducts(product :any){
+    this.cartItemList.push(...product);
+    this.productList.next(product);
+  }
+  addtoCart(product:any){
+    this.cartItemList.push(product);
+    this.productList.next(this.cartItemList);
+    this.getTotalPrice();
+    console.log(this.cartItemList);
+  }
+  getTotalPrice(): number{
+    let grandTotal=0;
+    this.cartItemList.map((a:any)=>{
+      grandTotal += Number(a.total);
+    })
+    return grandTotal;
+  }
+  removeCartItem(product: productd){
+      for(let i=0;i<this.cartItemList.length;i++){
+
+      if(this.cartItemList[i].pid === product.pid){
+
+      this.cartItemList.splice(i,1);
+
+      }
+
+    }
+
+    this.productList.next(this.cartItemList);
+
+
+  }
+  removeAllCart(){
+    this.cartItemList=[]
+    this.productList.next(this.cartItemList);
+  }
 }

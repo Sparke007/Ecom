@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../models/cart';
-import { CartItem } from '../models/cartIem';
 import { CartService } from '../services/cart.services';
 
 @Component({
@@ -8,26 +6,19 @@ import { CartService } from '../services/cart.services';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  cart!:Cart;
 
-  constructor(private cartService:CartService) {
-    this.setCart();
+export class HeaderComponent implements OnInit {
+  public totalItem: number=0;
+  constructor (public cartService: CartService) {
+
   }
 
   ngOnInit(): void {
-  }
-  setCart(){
-    this.cart = this.cartService.getCart();
-  }
-  removeFromCart(cartItem:CartItem){
-    this.cartService.removeFromCart(cartItem.tshirt.id);
-    this.setCart();
-  }
-  changeQuantity(cartItem:CartItem, quantityInString:string){
-    const quantity = parseInt(quantityInString);
-    this.cartService.changeQuantity(cartItem.tshirt.id, quantity);
-    this.setCart();
+    this.cartService.getProducts()
+    .subscribe(res=>{
+    this.totalItem = res.length;
+  })
+
   }
 
 }

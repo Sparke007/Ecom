@@ -1,32 +1,6 @@
-<!-- <ul>
-    <li *ngFor="let cartItem of cart.items">
-        <div>
-            <img [src]="cartItem.tshirt.imageUrl2" [alt]="cartItem.tshirt.name">
-        </div>
-        <div>
-            <a routerLink="/tshirt/{{cartItem.tshirt.id}}">
-                {{cartItem.tshirt.name}}
-            </a>
-        </div>
-        <div>
-            <select #quantitySelect  (change)="changeQuantity(cartItem, quantitySelect.value)"  >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </div>
-        <div>
-            {{cartItem.price}}
-        </div>
-
-    </li>
-</ul> -->
 
 
-
-<div class="card">
+<!-- <div class="card">
   <div class="row">
       <div class="col-md-8 cart">
           <div class="title">
@@ -84,4 +58,15 @@
           </div> <button routerLink="/checkout" class="btn" >CHECKOUT</button>
       </div>
   </div>
+</div> -->
+
+
+<div class="subtotal" *ngIf="product.length > 0">
+  <p>Subtotal: ({{totalItem}} items)
+      <strong> {{grandTotal|currency:'INR'}}</strong></p>
+      <div class="subtotal_gift">
+          <input type="checkbox"/>
+         <p>This order contains a gift</p>
+      </div>
+      <button>Proceed to checkout</button>
 </div>
